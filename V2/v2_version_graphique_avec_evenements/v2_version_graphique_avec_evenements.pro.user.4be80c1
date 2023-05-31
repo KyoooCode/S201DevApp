@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.2, 2023-05-31T16:02:49. -->
+<!-- Written by QtCreator 7.0.2, 2023-05-25T11:15:02. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
-  <value type="QByteArray">{03e04cd7-a44d-4f4d-9eeb-8fbf4b3b7edf}</value>
+  <value type="QByteArray">{4be80c12-c1c3-4f80-84e6-c0cf7940caf2}</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -99,8 +99,8 @@
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">F:\IUT\Annee_1\S2\SAE\S2.01DevApp\FINAL\V3\build-v3_version_graphique_mode_auto-Desktop_Qt_6_3_1_MinGW_64_bit-Debug</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">F:/IUT/Annee_1/S2/SAE/S2.01DevApp/FINAL/V3/build-v3_version_graphique_mode_auto-Desktop_Qt_6_3_1_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">F:\IUT\Annee_1\S2\SAE\S2.01DevApp\FINAL\V2\build-v2_version_graphique_avec_evenements-Desktop_Qt_6_3_1_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">F:/IUT/Annee_1/S2/SAE/S2.01DevApp/FINAL/V2/build-v2_version_graphique_avec_evenements-Desktop_Qt_6_3_1_MinGW_64_bit-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -158,14 +158,14 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:F:/IUT/Annee_1/S2/SAE/S2.01DevApp/FINAL/V3/v3_version_graphique_mode_auto/v3_version_graphique_mode_auto.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">F:/IUT/Annee_1/S2/SAE/S2.01DevApp/FINAL/V3/v3_version_graphique_mode_auto/v3_version_graphique_mode_auto.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:F:/IUT/Annee_1/S2/SAE/S2.01DevApp/FINAL/V2/v2_version_graphique_avec_evenements/v2_version_graphique_avec_evenements.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">F:/IUT/Annee_1/S2/SAE/S2.01DevApp/FINAL/V2/v2_version_graphique_avec_evenements/v2_version_graphique_avec_evenements.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">F:/IUT/Annee_1/S2/SAE/S2.01DevApp/FINAL/V3/build-v3_version_graphique_mode_auto-Desktop_Qt_6_3_1_MinGW_64_bit-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">F:/IUT/Annee_1/S2/SAE/S2.01DevApp/FINAL/V2/build-v2_version_graphique_avec_evenements-Desktop_Qt_6_3_1_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
