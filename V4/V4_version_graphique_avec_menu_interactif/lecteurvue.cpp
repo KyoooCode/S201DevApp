@@ -197,13 +197,13 @@ void LecteurVue::chargerDiaporama()
        Dans une version ultérieure, ces données proviendront d'une base de données,
        et correspondront au diaporama choisi */
     Image* imageACharger;
-    imageACharger = new Image(4, "personne", "Alice", "F:\\Documents\\IUT\\Annees_1\\S201\\S201DevApp\\cartesDisney\\Disney_2.gif");
+    imageACharger = new Image(4, "personne", "Alice", ":/cartesDisney/Disney_2.gif");
     _diaporama.push_back(imageACharger);
-    imageACharger = new Image(3, "animal", "Bambi", "F:\\Documents\\IUT\\Annees_1\\S201\\S201DevApp\\cartesDisney\\Disney_3.gif");
+    imageACharger = new Image(3, "animal", "Bambi", ":/cartesDisney/Disney_3.gif");
     _diaporama.push_back(imageACharger);
-    imageACharger = new Image(2, "personne", "Blanche Neige", "F:\\Documents\\IUT\\Annees_1\\S201\\S201DevApp\\cartesDisney\\Disney_4.gif");
+    imageACharger = new Image(2, "personne", "Blanche Neige", ":/cartesDisney/Disney_4.gif");
     _diaporama.push_back(imageACharger);
-    imageACharger = new Image(1, "animal", "Daisy", "F:\\Documents\\IUT\\Annees_1\\S201\\S201DevApp\\cartesDisney\\Disney_5.gif");
+    imageACharger = new Image(1, "animal", "Daisy", ":/cartesDisney/Disney_5.gif");
     _diaporama.push_back(imageACharger);
 
 

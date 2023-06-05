@@ -38,6 +38,15 @@ private:
     QGraphicsPixmapItem *pixmapItem;
     QGraphicsScene *scene;
     int vitesse;
+    unsigned int nbImages();
+    Image *imageCourante();
+    unsigned int numDiaporamaCourant();
+    void afficher();
+    void viderDiaporama();
+    void chargerDiaporama();
+    void changerDiaporama(unsigned int pNumDiaporama);
+    void actualiserInfoImg();
+
 
 private slots:
     void enleverDiapo();
@@ -50,14 +59,6 @@ private slots:
     void boutonArret();
     void aPropos();
     void quitter();
-    unsigned int nbImages();
-    Image *imageCourante();
-    unsigned int numDiaporamaCourant();
-    void afficher();
-    void viderDiaporama();
-    void chargerDiaporama();
-    void changerDiaporama(unsigned int pNumDiaporama);
-    void actualiserInfoImg();
     void changerVitesse();
 
 };
