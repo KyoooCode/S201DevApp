@@ -11,7 +11,7 @@ LecteurVue::LecteurVue(QWidget *parent)
 
     timer = new QTimer(this);
     db = new Database;
-    qDebug() << db->openDataBase();
+    db->openDataBase();
 
 
     dialogVitesse = new ChangerVitesse(this);
@@ -199,7 +199,7 @@ void LecteurVue::chargerDiaporama()
 
     QSqlQuery requete;
 
-    qDebug() << requete.prepare("SELECT DiaposDansDiaporama.rang, Familles.nomFamille, Diapos.titrePhoto, Diapos.uriPhoto FROM Diapos JOIN DiaposDansDiaporama ON Diapos.idphoto = DiaposDansDiaporama.idDiapo JOIN Familles ON Diapos.idFam = Familles.idFamille JOIN Diaporamas ON DiaposDansDiaporama.idDiaporama = Diaporamas.idDiaporama WHERE DiaposDansDiaporama.idDiaporama = ?");
+    requete.prepare("SELECT DiaposDansDiaporama.rang, Familles.nomFamille, Diapos.titrePhoto, Diapos.uriPhoto FROM Diapos JOIN DiaposDansDiaporama ON Diapos.idphoto = DiaposDansDiaporama.idDiapo JOIN Familles ON Diapos.idFam = Familles.idFamille JOIN Diaporamas ON DiaposDansDiaporama.idDiaporama = Diaporamas.idDiaporama WHERE DiaposDansDiaporama.idDiaporama = ?");
 
     requete.bindValue(0,QVariant(_numDiaporamaCourant));
     if(requete.exec())
@@ -210,7 +210,7 @@ void LecteurVue::chargerDiaporama()
             imageACharger = new Image(requete.value(0).toInt(),
                                       requete.value(1).toString().toStdString(),
                                       requete.value(2).toString().toStdString(),
-                                      requete.value(3).toString().toStdString());
+                                      ":" + requete.value(3).toString().toStdString());
             _diaporama.push_back(imageACharger);
 
         }
@@ -220,22 +220,6 @@ void LecteurVue::chargerDiaporama()
 
         qDebug() << "Erreur d'exécution";
     }
-
-
-/*
-     Chargement des images associées au diaporama courant
-       Dans une version ultérieure, ces données proviendront d'une base de données,
-       et correspondront au diaporama choisi
-    Image* imageACharger;
-    imageACharger = new Image(4, "personne", "Alice", "F:\\Documents\\IUT\\Annees_1\\S201\\S201DevApp\\cartesDisney\\Disney_2.gif");
-    _diaporama.push_back(imageACharger);
-    imageACharger = new Image(3, "animal", "Bambi", "F:\\Documents\\IUT\\Annees_1\\S201\\S201DevApp\\cartesDisney\\Disney_3.gif");
-    _diaporama.push_back(imageACharger);
-    imageACharger = new Image(2, "personne", "Blanche Neige", "F:\\Documents\\IUT\\Annees_1\\S201\\S201DevApp\\cartesDisney\\Disney_4.gif");
-    _diaporama.push_back(imageACharger);
-    imageACharger = new Image(1, "animal", "Daisy", "F:\\Documents\\IUT\\Annees_1\\S201\\S201DevApp\\cartesDisney\\Disney_5.gif");
-    _diaporama.push_back(imageACharger);
-*/
 
 
     // trier le contenu du diaporama par ordre croissant selon le rang de l'image dans le diaporama
@@ -277,7 +261,6 @@ void LecteurVue::viderDiaporama()
             ui->titreImage->setText(QString("Titre de l'image : xxxx"));
             ui->infoDiapo->setText(QString("Rang Img :  ") + QString("  Nombre d'images : 0"));
             ui->mode->setText(QString("Mode : xxxx"));
-
         }
     }
 
@@ -285,9 +268,7 @@ void LecteurVue::viderDiaporama()
 
 void LecteurVue::afficher()
 {
-    QString prefixe_url = QString::fromStdString("F:\\Documents\\IUT\\Annees_1\\S201\\S201DevApp\\cartesDisney\\") ;
-    QString titreImage = QString::fromStdString(this->imageCourante()->getTitre());
-    QString cheminImage = prefixe_url + titreImage;
+    QString cheminImage = QString::fromStdString(this->imageCourante()->getChemin());
 
     scene = new QGraphicsScene;
     ui->image->setScene(scene);
