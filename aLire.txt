@@ -1,0 +1,2 @@
+Chemin accès ressources :
+:/cartesDisney/nomImage.gif
