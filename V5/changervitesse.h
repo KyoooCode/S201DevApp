@@ -15,12 +15,14 @@ public:
     explicit ChangerVitesse(QWidget *parent = nullptr);
     ~ChangerVitesse();
     int getVitesse();
+    //BUT : Retourne l'entier de la vitesse
 
 private:
     Ui::ChangerVitesse *ui;
 
 private slots:
     void valider();
+    //BUT : Permet de valider la vitesse choisie
 };
 
 #endif // CHANGERVITESSE_H
