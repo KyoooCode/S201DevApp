@@ -151,8 +151,10 @@ void LecteurVue::boutonArret()
 {
     if(_numDiaporamaCourant > 0)
         {
+        //Si l'état du diaporama est à true (auto)
         if(this->etatDiapo)
         {
+            //On passe au mode manuel et on affiche
             this->etatDiapo = false;
             ui->mode->setText(QString("Mode : Manuel"));
             timer->stop();
@@ -228,31 +230,35 @@ void LecteurVue::chargerDiaporama()
 {
 
     QSqlQuery requete;
-
+    //Requête permettant de récupérer les informations nécessaires à l'initialisation d'un objet image
     requete.prepare("SELECT DiaposDansDiaporama.rang, Familles.nomFamille, Diapos.titrePhoto, Diapos.uriPhoto FROM Diapos JOIN DiaposDansDiaporama ON Diapos.idphoto = DiaposDansDiaporama.idDiapo JOIN Familles ON Diapos.idFam = Familles.idFamille JOIN Diaporamas ON DiaposDansDiaporama.idDiaporama = Diaporamas.idDiaporama WHERE DiaposDansDiaporama.idDiaporama = ?");
-
+    
+    //On affecte le paramètre _numDiaporamaCourant soit l'id d'un diaporama
     requete.bindValue(0,QVariant(_numDiaporamaCourant));
+    //Si la requête s'exécute correctement
     if(requete.exec())
     {
         while(requete.next())
         {
+            //On créer un objet image et on met toutes les informations récupérées grâce à la requête
             Image* imageACharger;
             imageACharger = new Image(requete.value(0).toInt(),
                                       requete.value(1).toString().toStdString(),
                                       requete.value(2).toString().toStdString(),
                                       ":" + requete.value(3).toString().toStdString());
+            //On charge l'image
             _diaporama.push_back(imageACharger);
 
         }
     }
+    //Si la requête ne s'exécute pas correctement
     else
     {
-
         qDebug() << "Erreur d'exécution";
     }
 
 
-    // trier le contenu du diaporama par ordre croissant selon le rang de l'image dans le diaporama
+    // trier par insertion le contenu du diaporama par ordre croissant selon le rang de l'image dans le diaporama
     for (unsigned int i = 1; i < nbImages(); i++)
     {
         Image* image = _diaporama[i];
@@ -268,10 +274,11 @@ void LecteurVue::chargerDiaporama()
      _posImageCourante = 0;
 
 
-
+     //On affiche l'image et on actualise les infos
      this->afficher();
      this->actualiserInfoImg();
-
+    
+     //Mode manuel par défaut
      ui->mode->setText(QString("Mode : Manuel"));
      this->etatDiapo = false;
 
@@ -283,9 +290,10 @@ void LecteurVue::viderDiaporama()
     if(nbImages() > 0)
     {
         int tailleDiapo = nbImages();
-
+        
         for(int i = 0; i < tailleDiapo; i++)
         {
+            //On vide le diaporama et on met à jour les affichages
             _diaporama.pop_back();
             scene->clear();
             ui->titreImage->setText(QString("Titre de l'image : xxxx"));
@@ -298,18 +306,24 @@ void LecteurVue::viderDiaporama()
 
 void LecteurVue::afficher()
 {
+    //On récupère le chemin de l'image
     QString cheminImage = QString::fromStdString(this->imageCourante()->getChemin());
-
+    
+    //On créer une scène
     scene = new QGraphicsScene;
     ui->image->setScene(scene);
-
+    
+    //On affecte le chemin de l'image à un QPixmap
     QPixmap image(cheminImage);
-
+    
+    //On créer un facteur d'agrandissement et on agrandis l'image en multipliant sa largeur et sa hauteur par le facteur d'agrandissement
     int factAgrandissement = 2;
     QSize newTaille(image.width() * factAgrandissement, image.height() * factAgrandissement);
-
+    
+    //Création d'un QGraphicsPixmapItem qui contient l'image, et on garde le ratio et on lisse l'image pour éviter la pixélisation causé par l'agrandissement
     pixmapItem = new QGraphicsPixmapItem(image.scaled(newTaille,Qt::KeepAspectRatio, Qt::SmoothTransformation));
-
+    
+    //Ajout de l'image à la scène
     scene->addItem(pixmapItem);
 }
 
